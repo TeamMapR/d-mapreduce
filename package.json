@@ -1,0 +1,22 @@
+{
+  "name": "d-mapreduce",
+  "version": "1.0.0",
+  "description": "A distributed mapreduce framework for nodejs",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TeamMapR/d-mapreduce.git"
+  },
+  "author": "Guillaume Carré, Arfaz Feroz, Côme Cothenet",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TeamMapR/d-mapreduce/issues"
+  },
+  "homepage": "https://github.com/TeamMapR/d-mapreduce#readme"
+}
