@@ -18,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/TeamMapR/d-mapreduce/issues"
   },
-  "homepage": "https://github.com/TeamMapR/d-mapreduce#readme"
+  "homepage": "https://github.com/TeamMapR/d-mapreduce#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^3.5.3",
+    "sinon": "^4.0.0"
+  }
 }
