@@ -2,8 +2,9 @@
 
 ```javascript
 const mapreduce = require('d-mapreduce')
-const master = mapreduce.Master
-const worker = mapreduce.Worker
+const master = mapreduce.Master({
+  port: 8080,
+})
 
 const job = master.processFile({
   url: 'test.txt',
@@ -11,37 +12,37 @@ const job = master.processFile({
 })
 
 job
-  .map('countWordMap')
+  .map('countWordMap', 6)
   .shuffle()
-  .reduce('countWordReduce')
+  .reduce('countWordReduce', 3)
   .end((data) => {
     console.log(data)
   })
 
-job.run(8080)
+job.run()
 
 
-const w = worker({
+const worker = mapreduce.Worker({
   master: 'http://localhost:8080',
   type: mapreduce.TypeMapper
 })
 
-w.func('countWordMap', (k, v) => {
+workerMapper.func('countWordMap', (item) => {
   
 })
 
-w.run(8081)
+workerMapper.run(8081)
 
 
-const w1 = worker({
+const workerReducer = worker({
   master: 'http://localhost:8080',
   type: mapreduce.TypeReducer
 })
 
-w1.func('countWordReduce', (all, e) => {
+workerReducer.func('countWordReduce', (all, e) => {
   
 })
 
-w1.run(8082)
+workerReducer.run(8082)
 
 ```
