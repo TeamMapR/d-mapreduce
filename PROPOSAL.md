@@ -22,27 +22,31 @@ job
 job.run()
 
 
-const worker = mapreduce.Worker({
+const countWordMap = (item) => {
+
+}
+
+const workerMapper = mapreduce.Worker({
   master: 'http://localhost:8080',
-  type: mapreduce.TypeMapper
+  mappers: {
+    countWordMap
+  }
 })
 
-workerMapper.func('countWordMap', (item) => {
-  
-})
-
-workerMapper.run(8081)
+workerMapper.run()
 
 
-const workerReducer = worker({
+const countWordReduce = (all, e) => {
+
+}
+
+const workerReducer = mapreduce.Worker({
   master: 'http://localhost:8080',
-  type: mapreduce.TypeReducer
+  reducers: {
+    countWordReduce
+  }
 })
 
-workerReducer.func('countWordReduce', (all, e) => {
-  
-})
-
-workerReducer.run(8082)
+workerReducer.run()
 
 ```
