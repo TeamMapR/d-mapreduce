@@ -1,21 +1,24 @@
-const mapreduce = require('../index.js')
+const Master = require('../lib/master')
 const assert = require('assert')
+const net = require('net')
 
 describe('Master constructor', () => {
   describe('constructor', () => {
     it('should start the server', () => {
-      mapreduce.Master({
+      Master({
         port: 8080,
       })
     })
+  })
+})
 
-    it('should set the conf values', () => {
-      const master = mapreduce.Master({
-        port: 8080,
-      })
-
-      assert.equal(master.port, 8080)
+describe('processData', () => {
+  it('should set the type of a worker when one connects', () => {
+    Master({
+      port: 8080,
     })
-
+    const client = net.connect({ port: 8080 }, () => {
+      client.write(JSON.stringify({ type: 'conn', value: 'map' }))
+    })
   })
 })

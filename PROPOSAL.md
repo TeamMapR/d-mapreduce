@@ -15,7 +15,7 @@ job
   .map('countWordMap', 6)
   .shuffle()
   .reduce('countWordReduce', 3)
-  .end((data) => {
+  .result((data) => {
     console.log(data)
   })
 
