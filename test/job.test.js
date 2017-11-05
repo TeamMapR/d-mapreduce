@@ -6,7 +6,6 @@ describe('Job creator', () => {
     const job = new Job({})
     job
       .map('countWord', 3)
-      .shuffle()
       .reduce('countWord', 4)
       .result(data => {
 

@@ -7,5 +7,7 @@ module.exports = {
     "rules": {
         "semi": 0,
         "arrow-parens": 0,
+        "no-plusplus": 0,
+        "no-case-declarations": 0,
     },
 };

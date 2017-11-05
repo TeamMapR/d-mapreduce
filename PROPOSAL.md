@@ -2,19 +2,20 @@
 
 ```javascript
 const mapreduce = require('d-mapreduce')
+
+// Master (name node)
 const master = mapreduce.Master({
   port: 8080,
 })
 
 const job = master.processFile({
   url: 'test.txt',
-  separator: '\n'
+  split: '\n'
 })
 
 job
-  .map('countWordMap', 6)
-  .shuffle()
-  .reduce('countWordReduce', 3)
+  .map('mapCountWord', 6)
+  .reduce('reduceCountWord', 3)
   .result((data) => {
     console.log(data)
   })
@@ -22,29 +23,41 @@ job
 job.run()
 
 
-const countWordMap = (item) => {
-
-}
+// Map Worker (data node)
 
 const workerMapper = mapreduce.Worker({
   master: 'http://localhost:8080',
-  mappers: {
-    countWordMap
-  }
+})
+
+workerMapper.register('mapCountWord', (data) => {
+  
+  words = data.split(' ')
+  keys = words.reduce((all, w => {
+    if (all[w]) {
+      all[w]++
+      return all
+    }
+    all[w] = 1
+    return all
+  }, {}))
+
+  return objToKV(keys)
 })
 
 workerMapper.run()
 
 
-const countWordReduce = (all, e) => {
-
-}
+// Reduce Worker (data node)
 
 const workerReducer = mapreduce.Worker({
   master: 'http://localhost:8080',
-  reducers: {
-    countWordReduce
-  }
+})
+
+workerReducer.register('reduceCountWord', (data) => {
+  return {
+    key: 'World',
+    value: 4,
+  }  
 })
 
 workerReducer.run()
