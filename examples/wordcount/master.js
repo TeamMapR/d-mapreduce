@@ -1,6 +1,6 @@
-const Master = require('../../lib/master')
+const mapreduce = require('../../index')
 
-const master = new Master({
+const master = mapreduce.Master({
   port: 8080,
 })
 

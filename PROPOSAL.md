@@ -25,7 +25,7 @@ job.run()
 
 // Map Worker (data node)
 
-const workerMapper = mapreduce.Worker({
+const workerMapper = mapreduce.Mapper({
   master: 'http://localhost:8080',
 })
 
@@ -44,12 +44,10 @@ workerMapper.register('mapCountWord', (data) => {
   return objToKV(keys)
 })
 
-workerMapper.run()
-
 
 // Reduce Worker (data node)
 
-const workerReducer = mapreduce.Worker({
+const workerReducer = mapreduce.Reducer({
   master: 'http://localhost:8080',
 })
 
@@ -59,7 +57,5 @@ workerReducer.register('reduceCountWord', (data) => {
     value: 4,
   }  
 })
-
-workerReducer.run()
 
 ```

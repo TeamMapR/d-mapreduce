@@ -12,7 +12,7 @@ const {
 describe('Master constructor', () => {
   describe('constructor', () => {
     it('should start the server', () => {
-      const master = new Master({
+      const master = Master({
         port: 8080,
       })
     })
@@ -21,7 +21,7 @@ describe('Master constructor', () => {
 
 describe('processData', () => {
   it('should set the type of a worker when one connects', () => {
-    const master = new Master({
+    const master = Master({
       port: 8080,
     })
     const client = net.connect({ port: 8080 }, () => {
