@@ -30,7 +30,6 @@ const workerMapper = mapreduce.Mapper({
 })
 
 workerMapper.register('mapCountWord', (data) => {
-  
   words = data.split(' ')
   keys = words.reduce((all, w => {
     if (all[w]) {
@@ -44,6 +43,7 @@ workerMapper.register('mapCountWord', (data) => {
   return objToKV(keys)
 })
 
+workerMapper.run()
 
 // Reduce Worker (data node)
 
@@ -57,5 +57,7 @@ workerReducer.register('reduceCountWord', (data) => {
     value: 4,
   }  
 })
+
+workerReducer.run()
 
 ```

@@ -17,3 +17,4 @@ mapper.register('wordCount', (data) => {
     .map(k => ({ key: k, value: keys[k] }))
 })
 
+mapper.run()

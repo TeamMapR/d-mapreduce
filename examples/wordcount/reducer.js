@@ -7,3 +7,6 @@ const reducer = mapreduce.Reducer({
 reducer.register('wordCount', (data) => {
 
 })
+
+
+reducer.run()
