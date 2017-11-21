@@ -17,4 +17,13 @@ mapper.register('wordCount', (data) => {
     .map(k => ({ key: k, value: keys[k] }))
 })
 
-mapper.run()
+
+const run = () => {
+  mapper.run(() => {
+    setTimeout(() => {
+      run()
+    }, 2000);
+  })
+}
+
+run()

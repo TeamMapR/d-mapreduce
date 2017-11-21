@@ -17,4 +17,7 @@ job
     console.log(data)
   })
 
-job.run()
+
+setTimeout(() => {
+  job.run()
+}, 5000);
