@@ -8,8 +8,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha",
-    "test:w": "mocha --watch"
+    "test": "jest",
+    "test:w": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -22,12 +22,10 @@
   },
   "homepage": "https://github.com/TeamMapR/d-mapreduce#readme",
   "devDependencies": {
-    "chai": "^4.1.2",
     "eslint": "^4.8.0",
     "eslint-config-airbnb-base": "^12.0.2",
     "eslint-plugin-import": "^2.7.0",
-    "mocha": "^3.5.3",
-    "sinon": "^4.0.0"
+    "jest": "^21.2.1"
   },
   "dependencies": {
     "uuid": "^3.1.0"

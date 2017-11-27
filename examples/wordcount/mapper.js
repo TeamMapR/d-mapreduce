@@ -6,11 +6,17 @@ const mapper = mapreduce.Mapper({
 
 mapper.register('wordCount', (data) => {
   const keys = data.reduce((all, w) => {
-    if (all[w]) {
-      all[w]++
-      return all
-    }
-    all[w] = 1
+    w.replace(/[!?,\-_\.]/g, '\n')
+      .replace(/ /g, '\n')
+      .split('\n')
+      .map(word => {
+        const pword = word.trim()
+        if (all[pword]) {
+          all[pword]++
+        } else {
+          all[pword] = 1
+        }
+      })
     return all
   }, {})
   return Object.keys(keys)
@@ -18,12 +24,4 @@ mapper.register('wordCount', (data) => {
 })
 
 
-const run = () => {
-  mapper.run(() => {
-    setTimeout(() => {
-      run()
-    }, 2000);
-  })
-}
-
-run()
+mapper.run()

@@ -5,7 +5,6 @@ const reducer = mapreduce.Reducer({
 })
 
 reducer.register('wordCount', (data) => {
-
   const keys = data.reduce((all, w) => {
     if (all[w]) {
       all[w]++
@@ -19,13 +18,4 @@ reducer.register('wordCount', (data) => {
     .map(k => ({ key: k, value: keys[k] }))
 })
 
-
-const run = () => {
-  reducer.run(() => {
-    setTimeout(() => {
-      run()
-    }, 2000);
-  })
-}
-
-run()
+reducer.run()
