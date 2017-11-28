@@ -31,10 +31,12 @@ describe('spread data', () => {
 
 
 describe('shuffle', () => {
-  const data = [{}]
-  const nodes = []
+  const data = [{ key: 'bananese', value: 2 }, { key: 'mdr', value: 1 }]
+  const nodes = [{}, {}]
 
+  console.log(shuffle(data, nodes))
   it('shuffle the data', () => {
-    expect(shuffle(data, nodes)).toBe()
+    expect(shuffle(data, nodes).length).toBe(2)
+    expect(shuffle(data, nodes)[0].length).toBe(1)
   })
 })
