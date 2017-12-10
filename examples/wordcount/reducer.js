@@ -6,11 +6,11 @@ const reducer = mapreduce.Reducer({
 
 reducer.register('wordCount', (data) => {
   const keys = data.reduce((all, w) => {
-    if (all[w]) {
-      all[w]++
+    if (all[w.key]) {
+      all[w.key]++
       return all
     }
-    all[w] = 1
+    all[w.key] = 1
     return all
   }, {})
 
