@@ -1,7 +1,7 @@
 const mapreduce = require('../../index')
 
 const mapper = mapreduce.Mapper({
-  master: 'localhost:8080',
+  master: `${process.env.MASTER_ADDR || 'localhost'}:8080`,
 })
 
 mapper.register('wordCount', (data) => {
@@ -9,7 +9,8 @@ mapper.register('wordCount', (data) => {
     w.replace(/[!?,\-_\.]/g, '\n')
       .replace(/ /g, '\n')
       .split('\n')
-      .map(word => {
+      .filter(fw => fw !== '')
+      .forEach(word => {
         const pword = word.trim()
         if (all[pword]) {
           all[pword]++

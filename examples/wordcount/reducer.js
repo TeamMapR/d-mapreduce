@@ -1,16 +1,16 @@
 const mapreduce = require('../../index')
 
 const reducer = mapreduce.Reducer({
-  master: 'localhost:8080',
+  master: `${process.env.MASTER_ADDR || 'localhost'}:8080`,
 })
 
 reducer.register('wordCount', (data) => {
   const keys = data.reduce((all, w) => {
     if (all[w.key]) {
-      all[w.key]++
+      all[w.key] += w.value
       return all
     }
-    all[w.key] = 1
+    all[w.key] = w.value
     return all
   }, {})
 

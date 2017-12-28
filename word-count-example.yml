@@ -1,0 +1,17 @@
+version: '3'
+services:
+  master:
+    build:
+      context: .
+      dockerfile: ./examples/wordcount/master/Dockerfile
+    volumes:
+      - ./examples/wordcount/out:/data/examples/wordcount/out
+      - ./examples/wordcount/files:/data/examples/wordcount/files
+  mapper:
+    build:
+      context: .
+      dockerfile: ./examples/wordcount/mapper/Dockerfile
+  reducer:
+    build:
+      context: .
+      dockerfile: ./examples/wordcount/reducer/Dockerfile
