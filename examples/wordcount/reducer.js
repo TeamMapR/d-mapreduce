@@ -18,4 +18,6 @@ reducer.register('wordCount', (data) => {
     .map(k => ({ key: k, value: keys[k] }))
 })
 
-reducer.run()
+reducer.run(() => {
+  console.log('Reducer connected to master')
+})

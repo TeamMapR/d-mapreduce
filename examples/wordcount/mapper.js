@@ -27,4 +27,6 @@ mapper.register('wordCount', (data) => {
 })
 
 
-mapper.run()
+mapper.run(() => {
+  console.log('Mapper connected to master')
+})
