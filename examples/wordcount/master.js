@@ -17,7 +17,7 @@ function processFile(file) {
   })
 
   job
-    .map('wordCount', 3)
+    .map('wordCount', 5)
     .reduce('wordCount', 2)
     .result((data, duration) => {
       // écrit les résultats dans un fichier
@@ -52,4 +52,4 @@ function run() {
 }
 
 run()
-setInterval(run, 10 * 1000)
+// setInterval(run, 10 * 1000)
