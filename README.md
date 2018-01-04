@@ -5,11 +5,10 @@ A distributed mapreduce framework for nodejs
 - [Todo list](TODO.md)
 - [Features proposal](PROPOSAL.md)
 
+## Examples
+- [Word count](examples/wordcount)
+
 ## Authors
 - Guillaume Carré
 - Arfaz Feroz
 - Côme Cothenet
-
-## Examples
-
-- [Word count](examples/wordcount/README.md)
