@@ -1,7 +1,9 @@
 # d-mapreduce
 A distributed mapreduce framework for nodejs
 
-[Todo list](TODO.md)
+## Links
+- [Todo list](TODO.md)
+- [Features proposal](PROPOSAL.md)
 
 ## Authors
 - Guillaume Carré
