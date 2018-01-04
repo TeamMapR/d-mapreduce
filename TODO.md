@@ -1,22 +1,22 @@
 # TODO
 
 ## Master
-- Input file
-- Split function (allow to customize it)
-- Create the job
-  - Choose nb of mapper, reducer
-  - Choose the functions
+- [X] Input file
+- [X] Split function (allow to customize it)
+- [X] Create the job
+  - [X] Choose nb of mapper, reducer
+  - [X] Choose the functions
 
 ## Mapper
-- get data split from master
-- functions must return list of key-value
-- result is sent back to master
+- [X] get data split from master
+- [X] functions must return list of key-value
+- [X] result is sent back to master
 
 ## Shuffle
-- The master node gathers the key-values from the worker nodes
-- the key-values are grouped by key and assigned to reducer nodes (hash(key) modulo reducers nb)
+- [X] The master node gathers the key-values from the worker nodes
+- [X] the key-values are grouped by key and assigned to reducer nodes (hash(key) modulo reducers nb)
 
 
 ## Reducer
-- the list of key-values are sent to the reducer nodes
-- the key-values are grouped and sorted and sent back to the master node
+- [X] the list of key-values are sent to the reducer nodes
+- [X] the key-values are grouped and sorted and sent back to the master node
