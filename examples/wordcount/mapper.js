@@ -7,23 +7,19 @@ const mapper = mapreduce.Mapper({
 mapper.register('wordCount', (data) => {
   // separe les lignes du fichier en mots, groupe les
   // mots et les compte => [{ key: 'mot', value: 1 }, ... ]
-  const keys = data.reduce((all, w) => {
-    w.replace(/[!?,\-_\.]/g, '\n')
+  const keyvalues = data.reduce((all, line) => {
+    const lines = line
+      .replace(/[!?,\-_\.]/g, '\n')
       .replace(/ /g, '\n')
       .split('\n')
       .filter(fw => fw !== '')
-      .forEach(word => {
+      .map(word => {
         const pword = word.trim()
-        if (all[pword]) {
-          all[pword]++
-        } else {
-          all[pword] = 1
-        }
+        return { key: pword, value: 1 }
       })
-    return all
-  }, {})
-  return Object.keys(keys)
-    .map(k => ({ key: k, value: keys[k] }))
+    return all.concat(lines)
+  }, [])
+  return keyvalues
 })
 
 
