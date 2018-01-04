@@ -19,6 +19,7 @@ job
   .map('wordCount', 3)
   .reduce('wordCount', 2)
   .result((data, duration) => {
+    // écrit les résultats dans un fichier
     let lines = data.map(kv => `${kv.key}: ${kv.value}`).join('\n')
     const minutes = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60))
     const seconds = Math.floor((duration % (1000 * 60 * 60)) / 1000)

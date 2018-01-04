@@ -28,6 +28,8 @@
     "jest": "^21.2.1"
   },
   "dependencies": {
+    "debug": "^3.1.0",
+    "json-socket": "^0.3.0",
     "uuid": "^3.1.0"
   }
 }

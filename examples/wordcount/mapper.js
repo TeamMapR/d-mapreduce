@@ -5,6 +5,8 @@ const mapper = mapreduce.Mapper({
 })
 
 mapper.register('wordCount', (data) => {
+  // separe les lignes du fichier en mots, groupe les
+  // mots et les compte => [{ key: 'mot', value: 1 }, ... ]
   const keys = data.reduce((all, w) => {
     w.replace(/[!?,\-_\.]/g, '\n')
       .replace(/ /g, '\n')
