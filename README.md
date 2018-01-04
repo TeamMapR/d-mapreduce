@@ -22,4 +22,4 @@ docker-compose -f word-count-example.yml scale mapper=6 reducer=3
 ```
 docker-compose -f word-count-example.yml up -d master
 ```
-The results are written in the file out.txt
+The results are written inside the directory `out`
