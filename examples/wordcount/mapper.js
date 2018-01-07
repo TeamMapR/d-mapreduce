@@ -9,10 +9,11 @@ mapper.register('wordCount', (data) => {
   // mots et les compte => [{ key: 'mot', value: 1 }, ... ]
   const keyvalues = data.reduce((all, line) => {
     const lines = line
-      .replace(/[!?,\-_\.]/g, '\n')
+      .replace(/[^a-zA-Z]/g, '\n')
       .replace(/ /g, '\n')
       .split('\n')
       .filter(fw => fw !== '')
+      .map(m => m.toLowerCase())
       .map(word => {
         const pword = word.trim()
         return { key: pword, value: 1 }
