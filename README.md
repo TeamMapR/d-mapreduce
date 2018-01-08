@@ -39,7 +39,7 @@ const mapper = mapreduce.Mapper({
 
 mapper.register('mapperFunction', (data) => {
   // TODO: implement mapper
-  // should return [{ key: 'yourkey', value: 'yourvalue' }, ...]
+  // should return [{ key: <yourkey>, value: <yourvalue> }, ...]
 })
 
 mapper.run()
