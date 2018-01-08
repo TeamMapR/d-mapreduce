@@ -1,11 +1,11 @@
 # d-mapreduce
 A distributed mapreduce framework for nodejs
 
-# Usage
+## Usage
 
 You will need to create at least 3 nodejs servers, one master, one reducer and one mapper.
 
-## Master
+### Master
 
 ```javascript
 const mapreduce = require('d-mapreduce')
@@ -29,7 +29,7 @@ job
 job.run() // launch the job
 ```
 
-## Mapper
+### Mapper
 ```javascript
 const mapreduce = require('d-mapreduce')
 
@@ -45,7 +45,7 @@ mapper.register('mapperFunction', (data) => {
 mapper.run()
 ```
 
-## Reducer
+### Reducer
 ```javascript
 const mapreduce = require('d-mapreduce')
 
