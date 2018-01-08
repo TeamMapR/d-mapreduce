@@ -1,6 +1,12 @@
 # d-mapreduce
 A distributed mapreduce framework for nodejs
 
+## Install
+
+```
+npm install --save d-mapreduce
+```
+
 ## Usage
 
 You will need to create at least 3 nodejs servers, one master, one reducer and one mapper.
